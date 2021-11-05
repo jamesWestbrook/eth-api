@@ -43,11 +43,12 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
-    doFirst {
-
-    }
 }
 
+
+tasks.withType<org.springframework.boot.gradle.tasks.bundling.BootBuildImage> {
+    imageName = "westbrook/greasy-api"
+}
 
 
 
