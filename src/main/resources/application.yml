@@ -4,3 +4,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     username: local
     password: local
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect

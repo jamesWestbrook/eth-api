@@ -23,4 +23,7 @@ data class Score(
 )
 
 @RepositoryRestResource
-interface ScoreRepository : CrudRepository<Score, UUID>
+interface ScoreRepository : CrudRepository<Score, UUID> {
+        fun getScoresByScoreGreaterThan(score: Short): Collection<Score>
+        fun getScoresByScoreGreaterThanAndTimeAfter(score: Short, time: Date) : Collection<Score>
+}
