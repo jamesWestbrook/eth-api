@@ -2,9 +2,9 @@ spring:
   datasource:
     url: ${CONNECTION_URL}
     driver-class-name: org.postgresql.Driver
-    username: local
-    password: local
+    username: docker
+    password: docker
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
     database-platform: org.hibernate.dialect.PostgreSQL10Dialect

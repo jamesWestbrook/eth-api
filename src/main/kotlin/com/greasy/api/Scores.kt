@@ -1,19 +1,23 @@
 package com.greasy.api
 
 import org.hibernate.annotations.CreationTimestamp
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.data.jpa.repository.Temporal
 import org.springframework.data.repository.CrudRepository
 import org.springframework.data.rest.core.annotation.RepositoryRestResource
 import java.util.Date
-import java.util.UUID
 import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
 import javax.persistence.Id
 import javax.persistence.TemporalType
 
 @Entity
-data class Score(
+class Score(
         @Id
-        val id: UUID = UUID.randomUUID(),
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        val id: Int,
         val score: Short,
         val initials: String,
 
@@ -23,7 +27,7 @@ data class Score(
 )
 
 @RepositoryRestResource
-interface ScoreRepository : CrudRepository<Score, UUID> {
-        fun getScoresByScoreGreaterThan(score: Short): Collection<Score>
-        fun getScoresByScoreGreaterThanAndTimeAfter(score: Short, time: Date) : Collection<Score>
+interface ScoreRepository : CrudRepository<Score, Int> {
+        fun getScoresByScoreGreaterThanOrderByScoreDesc(score: Short, page: Pageable): Page<Score>
+        fun getScoresByTimeAfterOrderByScoreDesc(time: Date, page: Pageable) : Page<Score>
 }
