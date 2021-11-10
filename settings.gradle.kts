@@ -1,1 +1,1 @@
-rootProject.name = "greasy-api"
+rootProject.name = "eth-api"

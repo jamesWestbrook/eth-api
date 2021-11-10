@@ -1,4 +1,4 @@
-package com.greasy.api
+package com.eth.api
 
 import org.hibernate.annotations.CreationTimestamp
 import org.springframework.data.domain.Page

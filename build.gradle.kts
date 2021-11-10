@@ -8,7 +8,7 @@ plugins {
     kotlin("plugin.jpa") version "1.5.31"
 }
 
-group = "com.greasy"
+group = "com.eth"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
@@ -47,7 +47,7 @@ tasks.withType<Test> {
 
 
 tasks.withType<org.springframework.boot.gradle.tasks.bundling.BootBuildImage> {
-    imageName = "westbrook/greasy-api"
+    imageName = "westbrook/eth-api"
 }
 
 
